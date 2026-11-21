@@ -7,7 +7,7 @@ const ITEMS = [
 export default function Principles() {
   return (
     <section id="principles" data-mood="calm">
-      <span className="idx m">04 — Principles</span>
+      <span className="idx m">06 — Principles</span>
       <div style={{ marginTop: 70 }}>
         {ITEMS.map(([h, p], i) => (
           <article className="pr" key={h}>

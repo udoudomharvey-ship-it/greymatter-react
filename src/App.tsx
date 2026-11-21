@@ -9,6 +9,10 @@ import AuraStill from './components/AuraStill'
 import Ledger from './components/Ledger'
 import Principles from './components/Principles'
 import Contact from './components/Contact'
+import Technology from './components/Technology'
+import Roadmap from './components/Roadmap'
+import Risks from './components/Risks'
+import Team from './components/Team'
 
 export default function App() {
   useSmoothScroll()
@@ -22,7 +26,7 @@ export default function App() {
     document.querySelectorAll('[data-mood]').forEach((s) => io.observe(s))
     let ctx: gsap.Context | undefined
     if (!RM) ctx = gsap.context(() => {
-      gsap.utils.toArray<HTMLElement>('.idx,.big,.tbl div,.led li,.ev div,.pr,.still,.note,.cr').forEach((e) =>
+      gsap.utils.toArray<HTMLElement>('.idx,.big,.tbl div,.led li,.ev div,.pr,.still,.note,.cr,.tr,.rk,.tm').forEach((e) =>
         gsap.from(e, { opacity: 0, y: 36, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: e, start: 'top 92%' } }))
     })
     document.fonts.ready.then(() => ScrollTrigger.refresh())
@@ -34,7 +38,7 @@ export default function App() {
       <a className="skip" href="#company">Skip to content</a>
       <Field />
       <nav aria-label="Primary"><b>GreyMatter</b><div>
-        <a href="#company">Company</a><a href="#prod">Aura-M1</a><a href="#ledger">Ledger</a><a href="#principles">Principles</a><a href="#contact">Contact</a>
+        <a href="#company">Company</a><a href="#prod">Aura-M1</a><a href="#tech">Technology</a><a href="#ledger">Ledger</a><a href="#roadmap">Roadmap</a><a href="#risks">Risks</a><a href="#team">Team</a><a href="#contact">Contact</a>
       </div></nav>
       <main>
         <section id="hero" data-mood="calm">
@@ -69,8 +73,12 @@ export default function App() {
           </div>
         </section>
 
+        <Technology />
         <Ledger />
+        <Roadmap />
         <Principles />
+        <Risks />
+        <Team />
         <Contact />
       </main>
       <footer className="m">

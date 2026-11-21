@@ -51,3 +51,15 @@ section{padding:clamp(90px,14vh,170px) var(--px);position:relative}
 #contact h2{font:600 clamp(44px,10vw,170px)/.9 var(--d);letter-spacing:-.05em;margin:50px 0}
 footer{padding:26px var(--px) 40px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* technology + roadmap rows */
+.tr{display:grid;grid-template-columns:56px 1fr 2fr auto;gap:20px;align-items:baseline;border-top:1px solid var(--line);padding:22px 0;transition:padding .35s,background .35s}
+.tr:last-child{border-bottom:1px solid var(--line)}.tr:hover{padding-left:12px;background:linear-gradient(90deg,rgba(111,255,176,.06),transparent)}
+.tr .no{font:500 12px var(--m);color:var(--mute)}.tr h3{margin:0;font:500 clamp(22px,2.6vw,38px)/1.05 var(--d);letter-spacing:-.03em}.tr p{margin:0;color:#c3cbc6;font-size:16.5px}
+.tag{font:500 11px var(--m);letter-spacing:.1em;text-transform:uppercase;border:1px solid;border-radius:99px;padding:5px 12px;white-space:nowrap;justify-self:end}
+.tag.ok{color:var(--sig);border-color:var(--sig)}.tag.wip{color:var(--amb);border-color:var(--amb)}.tag.in{color:var(--mute);border-color:var(--line)}
+@media(max-width:800px){.tr{grid-template-columns:1fr;gap:8px}.tag{justify-self:start}}
+/* risks */
+.rk{display:grid;grid-template-columns:1fr 1.2fr;gap:30px;border-top:1px solid var(--line);padding:26px 0}.rk:last-child{border-bottom:1px solid var(--line)}
+.rk h3{margin:0;font:500 clamp(24px,3vw,44px)/1.05 var(--d);letter-spacing:-.035em}.rk p{margin:8px 0 0;color:#c3cbc6}
+@media(max-width:800px){.rk{grid-template-columns:1fr;gap:10px}}

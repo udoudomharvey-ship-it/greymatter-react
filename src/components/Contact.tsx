@@ -16,7 +16,7 @@ function Copy({ text, label }: { text: string; label: string }) {
 export default function Contact() {
   return (
     <section id="contact" data-mood="settled">
-      <span className="idx m">06 — Contact</span>
+      <span className="idx m">09 — Contact</span>
       <h2>Speak with the founder.</h2>
       <p className="stmt" style={{ marginTop: 0, marginBottom: 36, fontSize: 'clamp(22px,2.6vw,38px)' }}>
         For investors and accelerators: a direct conversation about what is built, what is unproven, and what the next validation step costs.

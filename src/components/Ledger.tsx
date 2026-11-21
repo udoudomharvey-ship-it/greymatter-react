@@ -18,7 +18,7 @@ const EV: [string, string, boolean?][] = [
 export default function Ledger() {
   return (
     <section id="ledger" data-mood="unproven">
-      <span className="idx m">03 — The ledger</span>
+      <span className="idx m">04 — The ledger</span>
       <h2 className="big">Claims,<br /><em>kept honest.</em></h2>
       <p className="stmt" style={{ marginTop: 0, fontSize: 'clamp(24px,3.4vw,52px)' }}>
         Most early companies hide what isn’t proven. We publish it.
