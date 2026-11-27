@@ -10,7 +10,7 @@ export default function Team() {
           <p className="stmt" style={{ marginTop: 14, fontSize: 'clamp(22px,2.8vw,40px)' }}>
             Author of the Aura-M1 prototype, from the pose pipeline and entropy features to the network, the recommender and the voice layer.
           </p>
-          <p style={{ maxWidth: 560, color: '#c3cbc6' }}>
+          <p style={{ maxWidth: 560, color: 'var(--body)' }}>
             The work began as research at the University of Uyo in 2025 and is now developed through the iDICE Startup Bridge Founders Lab.
           </p>
           <a className="btn" href={LINKEDIN} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>

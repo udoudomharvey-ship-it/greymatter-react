@@ -1,42 +1,31 @@
-import { useEffect } from 'react'
-import { gsap, ScrollTrigger, RM } from './gsap'
-import { setMood, type Mood } from './mood'
+import { lazy, Suspense } from 'react'
 import { useSmoothScroll } from './hooks/useSmoothScroll'
-import Field from './components/Field'
+import { useWalls } from './hooks/useWalls'
 import Wordmark from './components/Wordmark'
 import Statement from './components/Statement'
 import AuraStill from './components/AuraStill'
 import Ledger from './components/Ledger'
 import Principles from './components/Principles'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
+import { useShortcuts } from './hooks/useShortcuts'
 import Technology from './components/Technology'
 import Roadmap from './components/Roadmap'
 import Risks from './components/Risks'
 import Team from './components/Team'
 
+const Corridor = lazy(() => import('./components/Corridor'))
+
 export default function App() {
   useSmoothScroll()
+  useShortcuts()
 
-  useEffect(() => {
-    // the field takes the mood of whichever section holds the middle of the screen
-    const io = new IntersectionObserver(
-      (es) => es.forEach((e) => e.isIntersecting && setMood((e.target as HTMLElement).dataset.mood as Mood)),
-      { rootMargin: '-45% 0px -45% 0px' },
-    )
-    document.querySelectorAll('[data-mood]').forEach((s) => io.observe(s))
-    let ctx: gsap.Context | undefined
-    if (!RM) ctx = gsap.context(() => {
-      gsap.utils.toArray<HTMLElement>('.idx,.big,.tbl div,.led li,.ev div,.pr,.still,.note,.cr,.tr,.rk,.tm').forEach((e) =>
-        gsap.from(e, { opacity: 0, y: 36, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: e, start: 'top 92%' } }))
-    })
-    document.fonts.ready.then(() => ScrollTrigger.refresh())
-    return () => { io.disconnect(); ctx?.revert() }
-  }, [])
+  useWalls()
 
   return (
     <>
       <a className="skip" href="#company">Skip to content</a>
-      <Field />
+      <Suspense fallback={null}><Corridor /></Suspense>
       <nav aria-label="Primary"><b>GreyMatter</b><div>
         <a href="#company">Company</a><a href="#prod">Aura-M1</a><a href="#tech">Technology</a><a href="#ledger">Ledger</a><a href="#roadmap">Roadmap</a><a href="#risks">Risks</a><a href="#team">Team</a><a href="#contact">Contact</a>
       </div></nav>
@@ -81,10 +70,7 @@ export default function App() {
         <Team />
         <Contact />
       </main>
-      <footer className="m">
-        <span>© 2026 GreyMatter Inc. · No cookies, no analytics, fonts served from this site.</span>
-        <a href="#hero">Back to top ↑</a>
-      </footer>
+      <Footer />
     </>
   )
 }

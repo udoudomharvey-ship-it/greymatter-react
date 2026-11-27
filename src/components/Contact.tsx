@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import InterestForm from './InterestForm'
 
 const LINKEDIN = 'https://www.linkedin.com/in/harvey-frederick-269772241?utm_source=share_via&utm_content=profile&utm_medium=member_android'
 const MAIL = 'udoudomharvey@gmail.com'
@@ -28,6 +29,7 @@ export default function Contact() {
         <div className="cr"><a className="cl" href={LINKEDIN} target="_blank" rel="noopener noreferrer"><span>LinkedIn</span>Harvey Udoudom ↗</a></div>
       </div>
       <p className="m mm" style={{ marginTop: 22 }} role="status">Harvey Udoudom, Chief Executive Officer. We are also looking for validation partners: people willing to label focused and distracted sessions across several days.</p>
+      <InterestForm />
     </section>
   )
 }

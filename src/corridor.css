@@ -1,0 +1,37 @@
+/* Corridor layout. Loaded after styles.css, so these rules take precedence. */
+:root{--bg:#0f151c;--line:#27323d;--panel:rgba(15,21,28,.92);--shadow:0 40px 90px -30px rgba(0,0,0,.6)}
+:root[data-theme="light"]{--panel:rgba(255,255,255,.95);--shadow:0 34px 70px -28px rgba(30,50,40,.3)}
+
+#gl{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity 1.4s ease}
+#gl.on{opacity:1}#gl canvas{display:block;width:100%;height:100%}
+.no3d #gl{display:none}
+.no3d body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.14;
+  background-image:radial-gradient(circle,var(--sig) 1px,transparent 1.6px);background-size:30px 30px}
+
+/* main is only a scroll runway (its height is set by script); the sections inside it are fixed on screen */
+main{position:relative;min-height:100vh}
+main>section{position:fixed;top:0;left:0;right:0;margin:0 auto;z-index:2;opacity:0;visibility:hidden;
+  width:min(780px,calc(100% - 2*var(--px)));padding:clamp(24px,3.4vw,48px);min-height:0;display:block;
+  background:var(--panel);border:1px solid var(--line);border-radius:3px;box-shadow:var(--shadow)}
+main>#hero{bottom:0;width:auto;height:100vh;padding:0 var(--px) clamp(30px,6vh,70px);min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;
+  background:none;border:0;border-radius:0;box-shadow:none}
+#tech,#ledger,#roadmap,#risks,#principles{width:min(920px,calc(100% - 2*var(--px)))}
+
+main .idx{position:static;display:block;margin-bottom:22px}
+main .big{font-size:clamp(40px,7vw,104px);margin:14px 0 22px}
+main .stmt{font-size:clamp(24px,2.8vw,42px);margin-top:20px}
+main .sub{margin:28px 0 0;max-width:none}
+main .pg{grid-template-columns:1fr}
+main .note{font-size:clamp(20px,2.2vw,30px);margin:30px 0 20px}
+main .pr{grid-template-columns:minmax(54px,10vw) 1fr;padding:clamp(24px,4vh,44px) 0}
+main .pr h3{font-size:clamp(28px,4vw,56px)}main .pr .n{font-size:clamp(54px,9vw,120px)}
+main #contact h2{font-size:clamp(40px,6vw,92px);margin:20px 0 26px}
+main .cl{font-size:clamp(20px,2.4vw,34px)}
+main .fm{margin-top:50px}
+main .tm .big{margin:10px 0 20px}
+@media(max-width:1100px){main .tr{grid-template-columns:1fr;gap:8px}main .tr .tag{justify-self:start}main .rk{grid-template-columns:1fr}}
+@media(max-width:700px){main>section{width:auto;margin:0 14px}main>#hero{margin:0}}
+
+footer{background:var(--panel);border-top:1px solid var(--line)}
+@media print{#gl{display:none!important}main{height:auto!important}
+  main>section{position:static!important;opacity:1!important;visibility:visible!important;transform:none!important;background:none;box-shadow:none;width:auto;margin:20px 0;border:0}}
